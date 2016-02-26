@@ -1,7 +1,5 @@
 import {Component, default as React} from 'react'
 import ReactDOM from 'react-dom'
-// import ClassNames from 'classnames'
-
 import store from './stores/recipeStore.js'
 
 import RecipeList from './components/recipeList.jsx'
@@ -28,9 +26,9 @@ class App extends Component {
 	render() {
 		if (this.state.selectedItem >= 0) {
 			const recipe = this.state.items[this.state.selectedItem]
-			return <RecipeView store={ store } recipe={ recipe } recipeIndex={ this.state.selectedItem } />
+			return <RecipeView store={ store } recipe={ recipe } index={ this.state.selectedItem } />
 		}
-
+		
 		return <RecipeList store={ store } items={ this.state.items }/>
 	}
 }

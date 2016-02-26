@@ -10,7 +10,7 @@ const IngredientsList = (props) => {
 			<div className="ingredientText">{ ingredient.name }</div>
 		</div>
 	}
-
+	
 	return <div className="IngredientsList">{ props.ingredients.map(renderIngredient) }</div>
 }
 

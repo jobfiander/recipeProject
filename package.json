@@ -43,7 +43,8 @@
     "express": "^4.13.3",
     "gulp-rename": "^1.2.2",
     "immutable": "^3.7.6",
-    "redux": "^3.3.1"
+    "redux": "^3.3.1",
+    "underscore": "^1.8.3"
   },
   "engines": {
     "node": "~4.2.0"
