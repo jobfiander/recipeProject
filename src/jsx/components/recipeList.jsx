@@ -18,11 +18,11 @@ const RecipeList = (props) => {
 	const openItem = (index) => {
 		props.store.dispatch({ type: 'OPEN_RECIPE', index })
 	}
-
+	
 	const rateItem = (index, rating) => {
 		props.store.dispatch({ type: 'RATE_RECIPE', index, rating })
 	}
-
+	
 	const renderRecipeListItem = (recipe, index) => {
 		const key = 'recipe-' + recipe.id
 		return <RecipeListItem recipe={ recipe } key={ key } index={ index } onOpen={ openItem } onRate={ rateItem }/>

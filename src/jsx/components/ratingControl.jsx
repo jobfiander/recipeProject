@@ -9,7 +9,7 @@ const Star = (props) => {
 const RatingControl = (props) => {
 	let stars = _.range(props.maxValue).map((i) => {
 		const key = "star-" + i
-		
+
 		return <Star active={ (i < props.value) } key={ key } value={ i + 1 } onClick={ (rating) => props.onChange(rating) } />
 	})
 
