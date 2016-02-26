@@ -2,13 +2,13 @@ import React from 'react'
 import RatingControl from './ratingControl.jsx'
 
 const RecipeListItem = (props) => {
-	const {recipe} = props
+	const {recipe, index, onOpen, onRate} = props
 
 	return <div className="recipeListItem">
 		<div className="recipeListItemImage" style={{backgroundImage: "url('" + recipe.image + "')"}}>
 			<div className="fade">
-				<h2 onClick={ () => props.onOpen(props.index) }>{ recipe.name }</h2>
-				<RatingControl value={ recipe.rating } onChange={ (rating) => props.onRate(props.index, rating) } />
+				<h2 onClick={ () => onOpen(index) }>{ recipe.name }</h2>
+				<RatingControl value={ recipe.rating } onChange={ (rating) => onRate(index, rating) } />
 			</div>
 		</div>
 	</div>

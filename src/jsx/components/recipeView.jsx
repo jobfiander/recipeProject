@@ -10,10 +10,10 @@ const RecipeView = (props) => {
 	const handleChange = (event) => {
 		const {target} = event
 		const key = target.getAttribute('data-key')
-
+		
 		let update = {}
 		update[key] = event.target.value
-
+		
 		props.store.dispatch({type: 'UPDATE_RECIPE', index, update})
 	}
 
