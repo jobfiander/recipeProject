@@ -1,9 +1,10 @@
 import React from 'react'
 import _ from 'underscore'
+import ClassNames from 'classnames'
 
 const Star = (props) => {
-	const className = "fa " + ((props.active) ? "fa-star" : "fa-star-o")
-	return <i className={ className } onClick={ (event) => props.onClick(props.value) }/>
+	const className = ClassNames('star', {full: props.active})
+	return <div className={ className } onClick={ (event) => props.onClick(props.value) }/>
 }
 
 const RatingControl = (props) => {

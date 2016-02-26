@@ -48,25 +48,64 @@ const ingredients = [
 export default [
 	{
 		id: 1,
-		name: 'Sushi',
-		image: 'http://lorempixel.com/image_output/food-q-c-640-480-8.jpg',
+		name: 'So Sukiyaki',
+		image: '/images/photos/pexels-ramen.jpg',
 		prepTime: 60,
-		rating: 2
+		rating: 2,
+		loved: true,
+		category: 'ramen',
+		servingSize: 2
 	},
 	{
 		id: 2,
-		name: 'Hamburger',
-		image: 'http://lorempixel.com/image_output/food-q-c-640-480-9.jpg',
+		name: 'Go Burger',
+		image: '/images/photos/bread-salad-lunch-meal.jpg',
 		prepTime: 15,
 		rating: 4,
 		directions: 'Preheat an outdoor grill for medium-high heat. Combine ground sirloin, onion, grill seasoning, liquid smoke, Worcestershire sauce, garlic, adobo sauce, and chipotle pepper in a large bowl. Form the mixture into 6 patties. Season with salt and pepper. Place burgers on preheated grill and cook until no longer pink in the center. Place a slice of Cheddar cheese on top of each burger one minute before they are ready. Place burgers on buns to serve.',
-		ingredients
+		ingredients,
+		loved: false,
+		category: 'burgers',
+		servingSize: 1
 	},
 	{
 		id: 3,
-		name: 'Stir Fry',
-		image: 'http://lorempixel.com/image_output/food-q-c-640-480-6.jpg',
-		prepTime: 20,
-		rating: 3
-	}
+		name: 'Sproutwich',
+		image: '/images/photos/bread-food-salad-sandwich.jpg',
+		prepTime: 5,
+		rating: 1,
+		loved: false,
+		category: 'vegetarian',
+		servingSize: 0
+	},
+	{
+		id: 4,
+		name: 'Chicken Thing',
+		image: '/images/photos/befa5c7cfca376be94eddaf5af8d72f6.jpg',
+		prepTime: 220,
+		rating: 3,
+		loved: true,
+		category: 'bbq',
+		servingSize: 2
+	},
+	{
+		id: 5,
+		name: 'Fettuccine',
+		image: '/images/photos/food-pasta-tomato-theme-workspaces.jpg',
+		prepTime: 220,
+		rating: 3,
+		loved: true,
+		category: 'pasta',
+		servingSize: 2
+	},
+		{
+		id: 6,
+		name: 'Veggiza',
+		image: '/images/photos/food-pizza-fast-food.jpg',
+		prepTime: 220,
+		rating: 3,
+		loved: true,
+		category: 'sayian',
+		servingSize: 2
+	},
 ]

@@ -19,6 +19,13 @@ function handleAction(state, action) {
 				})
 			})
 
+		case 'LOVE_RECIPE':
+			return state.update('items', items => {
+				return items.update(action.index, item => {
+					return item.set('loved', !item.get('loved'))
+				})
+			})
+
 		case 'UPDATE_RECIPE_NAME':
 			return state.update('items', items => {
 				return items.update(action.index, item => {
