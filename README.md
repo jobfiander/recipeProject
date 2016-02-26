@@ -1,2 +1,2 @@
-# RennDuPrat
-RennDuPrat website
+# RecipeProject
+Recipe React Project
