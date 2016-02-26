@@ -1,12 +1,17 @@
 import React from 'react'
 
+const Star = (props) => {
+	const className = "fa " + ((props.active) ? "fa-star" : "fa-star-o")
+	return <i className={ className } onClick={ (event) => props.onClick(props.value) }/>
+}
+
 const RatingControl = (props) => {
 	let stars = []
 
 	for (let i = 0; i < props.maxValue; i++) {
 		const key = "star-" + i
-		const className = "fa " + ((i < props.value) ? "fa-star" : "fa-star-o")
-		stars.push(<i className={ className } data-rating={ i + 1 } onClick={ (event) => props.onChange(event.target.getAttribute('data-rating')) } key={key} />)
+		
+		stars.push(<Star active={ (i < props.value) } key={ key } value={ i + 1 } onClick={ (rating) => props.onChange(rating) } />)
 	}
 
 	return <div className="rating-control">{ stars }</div>
