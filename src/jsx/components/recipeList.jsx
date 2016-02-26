@@ -18,17 +18,26 @@ const RecipeList = (props) => {
 	const openItem = (index) => {
 		props.store.dispatch({ type: 'OPEN_RECIPE', index })
 	}
-	
+
 	const rateItem = (index, rating) => {
 		props.store.dispatch({ type: 'RATE_RECIPE', index, rating })
 	}
-	
+
 	const renderRecipeListItem = (recipe, index) => {
 		const key = 'recipe-' + recipe.id
 		return <RecipeListItem recipe={ recipe } key={ key } index={ index } onOpen={ openItem } onRate={ rateItem }/>
 	}
 
-	return <div className="recipeList">{ props.items.map(renderRecipeListItem) }</div>
+	const revert = () => {
+		props.store.dispatch({ type: 'REVERT_DATA' })
+	}
+
+	return (
+		<div className="recipeBrowser">
+			<div className="recipeCategories"><button onClick={ revert }>Revert Data</button></div>
+			<div className="recipeList">{ props.items.map(renderRecipeListItem) }</div>
+		</div>
+	)
 }
 
 export default RecipeList

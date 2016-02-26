@@ -33,6 +33,10 @@ function handleAction(state, action) {
 					// return item.set('name', action.name)
 				})
 			})
+
+		case 'REVERT_DATA':
+			localStorage.removeItem('SAVED_STATE')
+			return fromJS({ items: testData, selectedItem: -1})
 		
 		default:
 			return state
