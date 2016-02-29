@@ -1,1 +1,1 @@
-web: gulp staging
+web: node server
