@@ -28,7 +28,7 @@ class App extends Component {
 
 	render() {
 		console.log("Render app")
-
+		
 		let content = <VisibleRecipeList />
 
 		if (this.state.selectedItem >= 0) {

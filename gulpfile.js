@@ -78,10 +78,12 @@ gulp.task("stylus", function(event) {
     })).pipe(gulp.dest(destinations.css))
 })
 
+var babelifyOptions = { presets: ['es2015', 'react'] }
+
 // Watchify
 gulp.task('watchify', function () {
     var args = merge(watchify.args, { debug: true })
-    var bundler = watchify(browserify(sources.js, args)).transform(babelify, { presets: ['es2015', 'react'] })
+    var bundler = watchify(browserify(sources.js, args)).transform(babelify, babelifyOptions)
     bundle_js(bundler)
     
     bundler.on('update', function () {
@@ -91,14 +93,14 @@ gulp.task('watchify', function () {
 
 // Without watchify
 gulp.task('browserify', function () {
-    var bundler = browserify(sources.js, { debug: true }).transform(babelify, {/* options */ })
+    var bundler = browserify(sources.js, { debug: true }).transform(babelify, babelifyOptions)
     
     return bundle_js(bundler)
 })
 
 // Without sourcemaps
 gulp.task('browserify-production', function () {
-  var bundler = browserify(sources.js).transform(babelify, {/* options */ })
+  var bundler = browserify(sources.js).transform(babelify, babelifyOptions)
 
   return bundler.bundle()
     .on('error', map_error)
