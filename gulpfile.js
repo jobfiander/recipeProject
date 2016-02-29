@@ -141,6 +141,7 @@ gulp.task('serve', function () {
 })
 
 gulp.task("default", ["jade", "stylus", "watch", "watchify", "serve"])
+gulp.task("staging", ["jade", "stylus", "browserify-production", "serve"])
 
 refresh = function(event) {
     var fileName = require('path').relative(__dirname, event.path)
