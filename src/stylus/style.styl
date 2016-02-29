@@ -1,6 +1,8 @@
 @import 'nib'
 // @import 'bootstrap'
 
+primaryColor = rgb(90, 199, 77)
+
 body
 	background: white
 	color: black
@@ -9,18 +11,60 @@ body
 	font-family: 'Helvetica Neue', Helvetica, sans-serif
 	font-rendering: optimizeLegibility
 
+.recipeCategories
+	absolute top left bottom
+	width 440px
+	background rgb(48, 51, 58)
+	color white
+	font-size 24px
+	
+	.recipeAppBox
+		background primaryColor
+		text-align center
+		padding-top 60px
+		padding-bottom 60px
+		
+		button
+			absolute top 10px left 10px
+	
+	.categories
+		padding 30px
+		
+		.category
+			margin-bottom 10px
+			cursor pointer
+			
+			&:hover
+				text-decoration underline
+			
+			&.active
+				color primaryColor
+				cursor default
+				text-decoration none
+
+.recipeView
+	margin-left 460px
+	position relative
+
 .recipeList
 	margin 10px
+	margin-left 460px
 	text-align left
 	
 	.recipeListItem
-		// padding 10px
 		background rgb(49, 50, 58)
 		color white
 		display inline-block
 		max-width 368px
 		text-align center
 		margin 20px
+		// position relative
+		// overflow hidden
+		// borderRadius = 8px
+		// border-radius borderRadius
+		// transform translate(0px, 0px)
+		// transform-origin 50% 50%
+		// backface-visibility hidden
 		
 		h2
 			cursor pointer
@@ -32,13 +76,16 @@ body
 		.recipeListItemImage
 			width 368px
 			height 252px
+			background transparent
 			background-size 100% auto
 			background-size cover
 			background-position center
 			// background-size cover
 			position relative
-			// margin-bottom 20px
-				
+			// // margin-bottom 20px
+			// border-top-left-radius borderRadius
+			// border-top-right-radius borderRadius
+
 			.heart
 				background transparent url('/images/hearts.png') no-repeat
 				width (50px / 2)
@@ -48,6 +95,7 @@ body
 				margin-top 20px
 				absolute top left
 				background-position -@width 0px
+				cursor pointer
 				
 				&.full
 					background-position 0px 0px

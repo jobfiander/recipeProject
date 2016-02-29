@@ -8,6 +8,7 @@ const RecipeListItem = (props) => {
 
 	return <div className="recipeListItem">
 		<div className="recipeListItemImage" style={{backgroundImage: "url('" + recipe.image + "')"}}>
+			<img src={ recipe.image } style={{display:'none'}}/>
 			<div className={ heartClassName } onClick={ (event) => onHeart(index) } />
 		</div>
 		<div className="recipeListItemInfo">
@@ -20,30 +21,25 @@ const RecipeListItem = (props) => {
 }
 
 const RecipeList = (props) => {
-	const openItem = (index) => {
-		props.store.dispatch({ type: 'OPEN_RECIPE', index })
-	}
+	console.log("Props")
+	console.log(props)
 
 	const rateItem = (index, rating) => {
-		props.store.dispatch({ type: 'RATE_RECIPE', index, rating })
-	}
+		// Handle star toggle (click full star and it empties)
+		if (props.items[index].rating === rating) {
+			rating = rating - 1
+		}
 
-	const heartItem = (index) => {
-		props.store.dispatch({ type: 'LOVE_RECIPE', index })
+		props.onRate(index, rating)
 	}
 
 	const renderRecipeListItem = (recipe, index) => {
 		const key = 'recipe-' + recipe.id
-		return <RecipeListItem recipe={ recipe } key={ key } index={ index } onOpen={ openItem } onHeart={ heartItem } onRate={ rateItem }/>
-	}
-
-	const revert = () => {
-		props.store.dispatch({ type: 'REVERT_DATA' })
+		return <RecipeListItem recipe={ recipe } key={ key } index={ index } onOpen={ props.onOpen } onHeart={ props.onLove } onRate={ rateItem }/>
 	}
 
 	return (
 		<div className="recipeBrowser">
-			<div className="recipeCategories"><button onClick={ revert }>Revert Data</button></div>
 			<div className="recipeList">{ props.items.map(renderRecipeListItem) }</div>
 		</div>
 	)

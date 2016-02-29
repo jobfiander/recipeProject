@@ -40,11 +40,14 @@ function handleAction(state, action) {
 					// return item.set('name', action.name)
 				})
 			})
-
+		
 		case 'REVERT_DATA':
 			localStorage.removeItem('SAVED_STATE')
-			return fromJS({ items: testData, selectedItem: -1})
+			return fromJS({ items: testData, selectedItem: -1, visibilityFilter: 'SHOW_ALL'})
 		
+		case 'FILTER_RECIPES':
+			return state.set('visibilityFilter', action.filter)
+
 		default:
 			return state
 	}
@@ -56,7 +59,7 @@ let initialData = null
 if (savedJSONData) {
 	initialData = fromJS(JSON.parse(savedJSONData))
 } else {
-	initialData = fromJS({ items: testData, selectedItem: -1})
+	initialData = fromJS({ items: testData, selectedItem: -1, visibilityFilter: 'SHOW_ALL'})
 }
 
 export default createStore(handleAction, initialData)
