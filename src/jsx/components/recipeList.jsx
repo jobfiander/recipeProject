@@ -15,7 +15,9 @@ const RecipeListItem = (props) => {
 			<RatingControl value={ recipe.rating } onChange={ (rating) => onRate(index, rating) } />
 			<h2 onClick={ () => onOpen(index) }>{ recipe.name }</h2>
 			<div className="categories"> {recipe.category} </div>
+			<div className="prepTime"> {recipe.prepTime} Min </div>
 			<div className="serving"> {recipe.servingSize} </div>
+
 		</div>
 	</div>
 }

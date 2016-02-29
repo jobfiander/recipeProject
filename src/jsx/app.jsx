@@ -43,7 +43,7 @@ class App extends Component {
 		const categories = [
 			{
 				filter: 'SHOW_ALL',
-				title: 'All'
+				title: 'All Recipes'
 			},
 			{
 				filter: 'SHOW_LOVED',
