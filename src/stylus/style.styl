@@ -164,39 +164,116 @@ body
 			
 
 .recipeView
-	text-align center
+	text-align left
 	padding 10px
+	padding-left 40px
+	background rgb(49, 50, 58)
+	max-width 1200px
+	margin-top 120px
+	margin-left 560px
+	min-height 80%
+	color white
 	
-	.recipeDirections
+	.recipeName
+		font-size 2.4em
+		text-transform uppercase
+		padding 10px
+		background rgb(62, 63, 73)
+		border 1px solid rgb(85, 87, 98)
+		color white
+		width 400px
+	
+	.recipeField
+		background rgb(62, 63, 73)
+		border 1px solid rgb(85, 87, 98)
+		padding 10px
+		font-size 1.8em
+		color white
+		width 400px
+		
+	.label
+		margin-top 20px
 		font-size 20px
-		max-width 900px
-		padding-bottom 25px
-		margin-right auto
-		margin-left auto
+		margin-bottom 10px
+		color rgb(125, 128, 143)
 		
 	img
-		border-radius 4px
+		absolute top -10px right -10px
 		box-shadow 0px 1px 5px rgba(0,0,0,0.1)
-		max-width 100%
-	
-.IngredientsList
-	display table
-	text-align left
-	margin-right auto
-	margin-left auto
-	
-	.ingredient
-		display table-row
-	
-	.ingredientIcon
-		display table-cell
-	
-	.ingredienttext
-		display table-cell
-		padding-left 20px
+		max-width 800px
+		max-height 600px
+
+	.rating-control
+		margin-left 50px
+		margin-top 20px
+		margin-bottom 50px
 		
+	.heart
+			background transparent url('/images/hearts.png') no-repeat
+			width (50px / 2)
+			height 22px
+			display inline-block
+			margin-left 35px
+			margin-top 28px
+			absolute top left
+			background-position -@width 0px
+			cursor pointer
+			
+			&.full
+					background-position 0px 0px
+.recipeContent
+	absolute bottom 50px left 70px
+	.serving
+		background transparent url('/images/people.png') no-repeat
+		display block
+		background-position top right 120px
+		height 26px
+		margin-top 15px
+		margin-left auto
+		margin-right 500px
+		font-size 26px
+		line-height 28px
+		text-align right
+		
+	.recipeDirections
+		vertical-align top
+		font-size 24px
+		max-width 500px
+		margin-left 60px
+		padding-bottom 25px
+		display inline-block
+		h2
+			margin-bottom 20px
+			margin-top 20px
+			font-size 36px
+	
+	.ingredientsContainer
+		display inline-block
+		min-width 500px
+		
+		.IngredientsList
+			font-size 20px
+			display table
+			text-align left
+			
+			.ingredient
+				display table-row
+			
+			.ingredientIcon
+				display table-cell
+			
+			.ingredienttext
+				display table-cell
+				padding-left 20px
+		h2
+			font-size 36px
+			margin-bottom 20px
+			margin-top 20px
+				
+	
 .closeButton
 	absolute top left
-	padding 15px
+	padding 5px
 	cursor pointer
+	color black
 	

@@ -54,7 +54,9 @@ export default [
 		rating: 2,
 		loved: true,
 		category: 'ramen',
-		servingSize: 2
+		directions: 'Preheat an outdoor grill for medium-high heat. Combine ground sirloin, onion, grill seasoning, liquid smoke, Worcestershire sauce, garlic, adobo sauce, and chipotle pepper in a large bowl. Form the mixture into 6 patties. Season with salt and pepper. Place burgers on preheated grill and cook until no longer pink in the center. Place a slice of Cheddar cheese on top of each burger one minute before they are ready. Place burgers on buns to serve.',
+		servingSize: 2,
+		ingredients,
 	},
 	{
 		id: 2,
@@ -66,7 +68,7 @@ export default [
 		ingredients,
 		loved: false,
 		category: 'burgers',
-		servingSize: 1
+		servingSize: 1,
 	},
 	{
 		id: 3,
@@ -76,7 +78,9 @@ export default [
 		rating: 1,
 		loved: false,
 		category: 'vegetarian',
-		servingSize: 0
+		directions: 'Preheat an outdoor grill for medium-high heat. Combine ground sirloin, onion, grill seasoning, liquid smoke, Worcestershire sauce, garlic, adobo sauce, and chipotle pepper in a large bowl. Form the mixture into 6 patties. Season with salt and pepper. Place burgers on preheated grill and cook until no longer pink in the center. Place a slice of Cheddar cheese on top of each burger one minute before they are ready. Place burgers on buns to serve.',
+		servingSize: 0,
+		ingredients,
 	},
 	{
 		id: 4,
@@ -86,7 +90,9 @@ export default [
 		rating: 3,
 		loved: true,
 		category: 'bbq',
-		servingSize: 2
+		directions: 'Preheat an outdoor grill for medium-high heat. Combine ground sirloin, onion, grill seasoning, liquid smoke, Worcestershire sauce, garlic, adobo sauce, and chipotle pepper in a large bowl. Form the mixture into 6 patties. Season with salt and pepper. Place burgers on preheated grill and cook until no longer pink in the center. Place a slice of Cheddar cheese on top of each burger one minute before they are ready. Place burgers on buns to serve.',
+		servingSize: 2,
+		ingredients,
 	},
 	{
 		id: 5,
@@ -95,8 +101,10 @@ export default [
 		prepTime: 20,
 		rating: 3,
 		loved: true,
+		directions: 'In a large bowl combine chopped tomatoes, minced garlic, brie, chopped basil, olive oil, vinegar, salt and pepper. Mix well. Cover and let stand at room temperature to marinate for 1 to 2 hours. In a large pot of boiling salted water over high heat, cook the fettuccine until al dente, about 12 minutes. Drain the fettuccine and toss with the sauce. Sprinkle with grated Parmesan cheese.',
 		category: 'pasta',
-		servingSize: 2
+		servingSize: 2,
+		ingredients,
 	},
 		{
 		id: 6,
@@ -105,7 +113,9 @@ export default [
 		prepTime: 9001,
 		rating: 3,
 		loved: true,
+		directions: 'Preheat an outdoor grill for medium-high heat. Combine ground sirloin, onion, grill seasoning, liquid smoke, Worcestershire sauce, garlic, adobo sauce, and chipotle pepper in a large bowl. Form the mixture into 6 patties. Season with salt and pepper. Place burgers on preheated grill and cook until no longer pink in the center. Place a slice of Cheddar cheese on top of each burger one minute before they are ready. Place burgers on buns to serve.',
 		category: 'sayian',
-		servingSize: 2
+		servingSize: 2,
+		ingredients,
 	},
 ]
