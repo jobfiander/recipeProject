@@ -61,7 +61,7 @@ const RecipeView = (props) => {
 	let directionsView = null
 
 	if (editMap.directions) {
-		directionsView = <div className="textWrapper"><textarea defaultValue={ recipe.directions } /></div>
+		directionsView = <div className="textWrapper"><textarea value={ recipe.directions } data-key="directions" onChange={ handleChange}/></div>
 	} else {
 		directionsView = <div className='recipeDirections'>{ recipe.directions }</div>
 	}
