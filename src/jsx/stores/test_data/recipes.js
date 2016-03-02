@@ -1,53 +1,32 @@
 const ingredients = [
 	{
-		name: '2 pounds ground beef sirloin',
+		name: '1/2 cup breadcrumbs',
 		listed: false
 	},
 	{
-		name: '1/2 onion, grated',
+		name: '1 tablespoon chilli powder',
 		listed: false
 	},
 	{
-		name: '1 tablespoon grill seasoning',
+		name: '1 onion',
 		listed: false
 	},
 	{
-		name: '1 tablespoon liquid smoke flavoring',
+		name: '1 teaspoon salt',
 		listed: false
 	},
 	{
-		name: '2 tablespoons Worcestershire sauce',
+		name: '1 teaspoon pepper',
 		listed: false
 	},
 	{
-		name: '2 tablespoons minced garlic',
-		listed: false
-	},
-	{
-		name: '1 tablespoon adobo sauce from canned chipotle peppers',
-		listed: false
-	},
-	{
-		name: '1 chipotle chile in adobo sauce, chopped',
-		listed: false
-	},
-	{
-		name: 'salt and pepper to taste',
-		listed: false
-	},
-	{
-		name: '6 (1 ounce) slices sharp Cheddar cheese (optional)',
-		listed: false
-	},
-	{
-		name: '6 hamburger buns',
+		name: '2 lbs lean ground meat',
 		listed: false
 	}
 ]
 
-export default [
-	{
-		id: 1,
+export default {
+	'1': {
 		name: 'So Sukiyaki',
 		image: '/images/photos/pexels-ramen.jpg',
 		prepTime: 60,
@@ -58,8 +37,7 @@ export default [
 		servingSize: 2,
 		ingredients,
 	},
-	{
-		id: 2,
+	'2': {
 		name: 'Go Burger',
 		image: '/images/photos/bread-salad-lunch-meal.jpg',
 		prepTime: 15,
@@ -70,8 +48,7 @@ export default [
 		category: 'burgers',
 		servingSize: 1,
 	},
-	{
-		id: 3,
+	'3': {
 		name: 'Sproutwich',
 		image: '/images/photos/bread-food-salad-sandwich.jpg',
 		prepTime: 5,
@@ -82,8 +59,7 @@ export default [
 		servingSize: 0,
 		ingredients,
 	},
-	{
-		id: 4,
+	'4': {
 		name: 'Chicken Thing',
 		image: '/images/photos/befa5c7cfca376be94eddaf5af8d72f6.jpg',
 		prepTime: 35,
@@ -94,8 +70,7 @@ export default [
 		servingSize: 2,
 		ingredients,
 	},
-	{
-		id: 5,
+	'5': {
 		name: 'Fettuccine',
 		image: '/images/photos/food-pasta-tomato-theme-workspaces.jpg',
 		prepTime: 20,
@@ -106,8 +81,7 @@ export default [
 		servingSize: 2,
 		ingredients,
 	},
-		{
-		id: 6,
+	'6': {
 		name: 'Veggiza',
 		image: '/images/photos/food-pizza-fast-food.jpg',
 		prepTime: 9001,
@@ -118,4 +92,4 @@ export default [
 		servingSize: 2,
 		ingredients,
 	},
-]
+}

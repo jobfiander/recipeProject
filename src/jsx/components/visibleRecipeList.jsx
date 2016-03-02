@@ -19,7 +19,17 @@ const getVisibleRecipes = (recipes, filter) => {
 }
 
 const mapStateToProps = (state) => {
-  const recipes = state.get('items').toJS()
+  let recipeMap = state.get('items').toJS()
+  let recipeIDs = Object.keys(recipeMap)
+  let recipes = []
+
+  for (var i = 0; i < recipeIDs.length; i++) {
+    let recipeID = recipeIDs[i]
+    let recipe = recipeMap[recipeID]
+    recipe.id = recipeID
+    recipes.push(recipe)
+  }
+  // const recipes = state.get('items').toJS()
   const items = getVisibleRecipes(recipes, state.get('visibilityFilter'))
   
   return { items }
@@ -27,16 +37,16 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onOpen: (index) => {
-      dispatch({ type: 'OPEN_RECIPE', index })
+    onOpen: (id) => {
+      dispatch({ type: 'OPEN_RECIPE', id })
+    },
+    
+    onRate: (id, rating) => {
+      dispatch({ type: 'RATE_RECIPE', id, rating })
     },
 
-    onRate: (index, rating) => {
-      dispatch({ type: 'RATE_RECIPE', index, rating })
-    },
-
-    onLove: (index) => {
-      dispatch({ type: 'LOVE_RECIPE', index })
+    onLove: (id) => {
+      dispatch({ type: 'LOVE_RECIPE', id })
     }
   }
 }

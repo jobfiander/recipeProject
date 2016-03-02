@@ -142,8 +142,8 @@ body
 			padding-top 40px
 			padding-bottom 20px
 		
-		img
-			width 100%
+		// img
+		// 	width 100%
 
 .rating-control
 	
@@ -167,10 +167,6 @@ body
 			
 .recipeContainer
 	margin-left 480px
-	
-	.recipeDetails
-		text-align center
-		margin-top 120px
 
 	.recipeView
 		text-align left
@@ -181,8 +177,16 @@ body
 		margin-top 120px
 		margin-left auto
 		margin-right auto
-		min-height 80%
+		padding-bottom 40px
 		color white
+		
+		input
+			background rgb(62, 63, 73)
+			border 1px solid rgb(85, 87, 98)
+			padding 10px
+			font-size 1.8em
+			color white
+			font-family: 'Helvetica Neue', Helvetica, sans-serif
 		
 		.recipeName
 			font-size 2.4em
@@ -191,99 +195,170 @@ body
 			background rgb(62, 63, 73)
 			border 1px solid rgb(85, 87, 98)
 			color white
-			width 400px
+			width 450px
 		
 		.recipeField
-			background rgb(62, 63, 73)
-			border 1px solid rgb(85, 87, 98)
-			padding 10px
-			font-size 1.8em
-			color white
-			width 400px
+			width 450px
 			
 		.label
-			margin-top 20px
-			font-size 20px
-			margin-bottom 10px
+			margin-top 45px
+			font-size 24px
+			margin-bottom 12px
 			color rgb(125, 128, 143)
+		
+		.ratingContainer
+			margin-left 70px
+			margin-top 50px
+			display inline-block
+			font-size 20px
 			
-		img
-			absolute top -10px right -10px
-			box-shadow 0px 1px 5px rgba(0,0,0,0.1)
-			max-width 800px
-			max-height 600px
-
-		.rating-control
-			margin-left 50px
-			margin-top 20px
-			margin-bottom 50px
+			.rating-control
+				margin-left 10px
+				display inline-block
 			
 		.heart
-				background transparent url('/images/hearts.png') no-repeat
-				width (50px / 2)
-				height 22px
-				display inline-block
-				margin-left 35px
-				margin-top 28px
-				absolute top left
-				background-position -@width 0px
-				cursor pointer
-				
-				&.full
-						background-position 0px 0px
+			background transparent url('/images/hearts.png') no-repeat
+			width (50px / 2)
+			height 22px
+			display inline-block
+			margin-left 35px
+			margin-top 60px
+			absolute top left
+			background-position -@width 0px
+			cursor pointer
+			
+			&.full
+					background-position 0px 0px
 						
-.serving
-	background transparent url('/images/people.png') no-repeat
-	display inline-block
-	background-position top left
-	height 26px
-	margin-top 15px
-	margin-left auto 
-	margin-right auto
-	font-size 26px
-	line-height 28px
-	padding-left 40px
+		.recipeIntro
+			width 100%
+			display table
+			
+			.recipeForm
+				display table-cell
+				vertical-align top
+				width 450px
+				
+			.recipePhoto
+				display table-cell
+				vertical-align top
+				
+				img
+					relative top -20px right -50px
+					box-shadow 0px 1px 5px rgba(0,0,0,0.1)
+					max-width 730px
+					max-height 490px
+			
+			.recipeDetails
+				text-align left
+				padding-left 50px
+					
+				.serving
+					background transparent url('/images/people.png') no-repeat
+					display inline-block
+					background-position bottom left
+					height 26px
+					font-size 26px
+					line-height 28px
+					padding-left 40px
 
 .recipeContent
-	margin-top 15px
+	padding-top 15px
 	// text-align center
-		
-	.recipeDirections
-		vertical-align top
-		font-size 24px
-		max-width 500px
-		margin-left 60px
-		padding-bottom 25px
-		display inline-block
-		
-		h2
-			margin-bottom 20px
-			margin-top 20px
+	display table
+	width 100%
+	
+	h2
 			font-size 36px
+			margin-bottom 35px
+			margin-top 20px
+			display inline-block
+	
+	.fa-pencil
+		display inline-block
+		padding-top 30px
+		font-size 20px
+		float right
+		color rgba(255,255,255,0.5)
+		
+		&.active
+			color white
+	
+	.directionsContainer
+		display table-cell
+		width 100%
+		padding-right 60px
+		
+		.recipeDirections
+			vertical-align top
+			font-size 26px
+			margin-left 60px
+			padding-bottom 25px
+			display table-cell
+			
+		.textWrapper
+			margin-left -11px
+			margin-right -11px
+			margin-top -11px
+		
+		textarea
+			display block
+			resize none
+			font-size 26px
+			padding 10px
+			background rgb(62, 63, 73)
+			border 1px solid rgb(85, 87, 98)
+			color white
+			min-width 100%
+			min-height 324px
+			font-family: 'Helvetica Neue', Helvetica, sans-serif
 	
 	.ingredientsContainer
-		display inline-block
-		min-width 500px
+		display table-cell
+		width 450px
+		padding-right 50px
 		
 		.IngredientsList
-			font-size 20px
-			display table
+			font-size 26px
 			text-align left
+			width 450px
 			
 			.ingredient
-				display table-row
-			
-			.ingredientIcon
-				display table-cell
-			
-			.ingredienttext
-				display table-cell
-				padding-left 20px
-		h2
-			font-size 36px
-			margin-bottom 20px
-			margin-top 20px
 				
+				input
+					width 100%
+					font-size 26px
+			
+			.ingredientText
+				padding-left 0px
+				padding-bottom 15px
+				background rgb(62, 63, 73)
+				border 1px solid rgb(85, 87, 98)
+				padding 10px
+				color white
+				
+			.btn
+				padding-bottom 15px
+				background rgb(62, 63, 73)
+				border 1px solid rgb(85, 87, 98)
+				padding 10px
+				color white
+				font-size 24px
+				font-family: 'Helvetica Neue', Helvetica, sans-serif
+				width 450px
+				text-align left
+				outline none
+				
+				&:hover:active
+					background darken(rgb(62, 63, 73), 15%)
+					
+				
+				.fa-plus
+					padding-right 10px
+		h2
+			margin-bottom 24px
+
+						
 	
 .closeButton
 	absolute top 60px left
