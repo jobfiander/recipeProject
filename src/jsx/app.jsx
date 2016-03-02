@@ -4,6 +4,7 @@ import store from './stores/recipeStore.js'
 import ClassNames from 'classnames'
 
 import { Provider } from 'react-redux'
+import { Map } from 'immutable'
 
 import VisibleRecipeList from './components/visibleRecipeList.jsx'
 import RecipeView from './components/recipeView.jsx'
@@ -18,6 +19,7 @@ class App extends Component {
 		super(props)
 		
 		this.state = store.getState().toJS()
+		this.handleRecipeEdit = (key) => this._handleRecipeEdit(key)
 	}
 
 	componentDidMount() {
@@ -26,14 +28,30 @@ class App extends Component {
 		})
 	}
 
+	_handleRecipeEdit(key) {
+		store.dispatch({ type: 'TOGGLE_EDIT', key: key })
+	}
+
 	render() {
 		console.log("Render app")
 		
 		let content = <VisibleRecipeList />
 
 		if (this.state.selectedItem >= 0) {
-			const recipe = this.state.items[this.state.selectedItem]
-			content = <RecipeView store={ store } recipe={ recipe } index={ this.state.selectedItem } />
+			// const recipe = this.state.items[this.state.selectedItem]
+			let items = store.getState().get('items')
+			
+			let recipe = items.get(this.state.selectedItem).toJS()
+			recipe.id = this.state.selectedItem
+
+			// for (let i = 0; i < this.state.items.length; i++) {
+			// 	if (this.state.items[i].id === this.state.selectedItem) {
+			// 		recipe = this.state.items[i]
+			// 		break
+			// 	}
+			// }
+			
+			content = <RecipeView store={ store } editMap={ this.state.editMap } recipe={ recipe } onEdit={ this.handleRecipeEdit } />
 		}
 
 		const revert = () => {
@@ -43,7 +61,7 @@ class App extends Component {
 		const categories = [
 			{
 				filter: 'SHOW_ALL',
-				title: 'All'
+				title: 'All Recipes'
 			},
 			{
 				filter: 'SHOW_LOVED',
