@@ -11,6 +11,10 @@ body
 	font-family: 'Helvetica Neue', Helvetica, sans-serif
 	font-rendering: optimizeLegibility
 
+.application
+	position relative
+	min-height 100%
+
 .recipeCategories
 	absolute top left bottom
 	width 440px
@@ -52,7 +56,7 @@ body
 	text-align center
 
 .recipeList
-	margin-top 60px
+	padding-top 60px
 	margin-left 560px
 	text-align left
 	
@@ -167,6 +171,7 @@ body
 			
 .recipeContainer
 	margin-left 480px
+	padding-top 120px
 
 	.recipeView
 		text-align left
@@ -174,7 +179,6 @@ body
 		padding-left 40px
 		background rgb(49, 50, 58)
 		max-width 1200px
-		margin-top 120px
 		margin-left auto
 		margin-right auto
 		padding-bottom 40px
@@ -308,6 +312,7 @@ body
 			padding 10px
 			background rgb(62, 63, 73)
 			border 1px solid rgb(85, 87, 98)
+			box-sizing border-box
 			color white
 			min-width 100%
 			min-height 324px
