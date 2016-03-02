@@ -131,13 +131,15 @@ gulp.task("watch", function() {
     gulp.watch('dist/**/*', refresh)
 });
 
+var port = process.env.PORT || 4000
+
 gulp.task('serve', function () {
     var express = require('express')
     var app = express()
     app.use(require('connect-livereload')())
     app.use(express.static(__dirname+'/dist/'))
-    app.listen(4000)
-    console.log('Listening on port ' + 4000)
+    app.listen(port)
+    console.log('Listening on port ' + port)
     lr = require('tiny-lr')()
     lr.listen(35729)
 })
