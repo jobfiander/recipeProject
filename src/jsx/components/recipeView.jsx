@@ -27,26 +27,34 @@ const RecipeView = (props) => {
 		props.store.dispatch({type: 'CLOSE_RECIPE'})
 	}
 
-	return <div className="recipeView">
-		<img src={ recipe.image }/>
-		<div className={ heartClassName } onClick={ (event) => onHeart(index) } />
-		<RatingControl value={ recipe.rating } onChange={ handleRating }/>
-		<div className="label"> Title </div>
-		<input className="recipeName" value={ recipe.name } data-key="name" onChange={ handleChange } />
-		<div className="label"> Category </div>
-		<input className="recipeField" value={ recipe.category } data-key="name" onChange={ handleChange } />
-		<div className="label"> Prep Time </div>
-		<input className="recipeField" value={ recipe.prepTime+' Minutes' } data-key="prepTime" onChange={ handleChange } />
-		<div className="recipeContent">
-			<div className="serving"> Serves {recipe.servingSize} </div>
-			<div className='ingredientsContainer'>
-				<h2> Ingredients </h2>
-				<IngredientsList ingredients={ ingredients || [] }/>
+	return <div className='recipeContainer'><div className="closeButton" onClick={ close }><i className="fa fa-chevron-circle-left"></i> Go Back</div>
+		<div className="recipeView">
+			<img src={ recipe.image }/>
+			
+			<div className="recipeIntro">
+				<div className={ heartClassName } onClick={ (event) => onHeart(index) } />
+				<RatingControl value={ recipe.rating } onChange={ handleRating }/>
+				<div className="label">Title</div>
+				<input className="recipeName" value={ recipe.name } data-key="name" onChange={ handleChange } />
+				<div className="label">Category</div>
+				<input className="recipeField" value={ recipe.category } data-key="category" onChange={ handleChange } />
+				<div className="label">Prep Time</div>
+				<input className="recipeField" value={ recipe.prepTime } data-key="prepTime" onChange={ handleChange } />
 			</div>
 
-			<div className='recipeDirections'><h2> Directions </h2>{ recipe.directions }</div>
+			<div className="recipeDetails">
+				<div className="serving">Serves {recipe.servingSize}</div>
+			</div>
+
+			<div className="recipeContent">
+				<div className='ingredientsContainer'>
+					<h2>Ingredients</h2>
+					<IngredientsList ingredients={ ingredients || [] }/>
+				</div>
+
+				<div className='recipeDirections'><h2>Directions</h2>{ recipe.directions }</div>
+			</div>
 		</div>
-		<div className="closeButton" onClick={ close }><i className="fa fa-times fa-2x"></i></div>
 	</div>
 
 }

@@ -32,7 +32,16 @@ class App extends Component {
 		let content = <VisibleRecipeList />
 
 		if (this.state.selectedItem >= 0) {
-			const recipe = this.state.items[this.state.selectedItem]
+			// const recipe = this.state.items[this.state.selectedItem]
+			let recipe = null
+
+			for (let i = 0; i < this.state.items.length; i++) {
+				if (this.state.items[i].id === this.state.selectedItem) {
+					recipe = this.state.items[i]
+					break
+				}
+			}
+			
 			content = <RecipeView store={ store } recipe={ recipe } index={ this.state.selectedItem } />
 		}
 
