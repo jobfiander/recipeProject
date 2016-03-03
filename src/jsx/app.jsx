@@ -145,8 +145,7 @@ class App extends Component {
 		let categories = this.state.categories.slice(0)
 		categories.splice(0, 0, "All Categories")
 
-		return <div className="application">
-			<div className="recipeCategories">
+		let sidebar = <div className="recipeCategories">
 				<div className="recipeAppBox">
 					<img src="/images/logo.png" />
 					<button onClick={ revert }>Revert Data</button>
@@ -157,6 +156,13 @@ class App extends Component {
 					{ categories.map(renderCategory) }
 				</div>
 			</div>
+
+		if (this.state.selectedItem >= 0) {
+			sidebar = null
+		}
+
+		return <div className="application">
+			{ sidebar }
 			{ content }
 		</div>
 	}

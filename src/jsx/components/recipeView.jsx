@@ -69,8 +69,9 @@ const RecipeView = (props) => {
 	const directionsPencilClass = ClassNames('fa', 'fa-pencil', {active: editMap.directions})
 	const ingredientsPencilClass = ClassNames('fa', 'fa-pencil', {active: editMap.ingredients})
 
-	return <div className='recipeContainer'><div className="closeButton" onClick={ close }><i className="fa fa-chevron-circle-left"></i> Go Back</div>
+	return <div className='recipeContainer'>
 		<div className="recipeView">	
+			<div className="closeButton" onClick={ close }><i className="fa fa-chevron-circle-left"></i> Go Back</div>
 			<div className="recipeIntro">
 				<div className="recipeForm">
 					<div className={ heartClassName } onClick={ (event) => onHeart(id) } />
