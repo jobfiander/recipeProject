@@ -2,6 +2,7 @@ import {Component, default as React} from 'react'
 import ReactDOM from 'react-dom'
 import store from './stores/recipeStore.js'
 import ClassNames from 'classnames'
+import _ from 'underscore'
 
 import { Provider } from 'react-redux'
 import { Map } from 'immutable'
@@ -18,13 +19,28 @@ class App extends Component {
 	constructor(props) {
 		super(props)
 		
-		this.state = store.getState().toJS()
+		this.state = this.stateWithCategories(store.getState().toJS())
 		this.handleRecipeEdit = (key) => this._handleRecipeEdit(key)
+	}
+
+	stateWithCategories(state) {
+		console.log("State without categories")
+		console.log(state)
+
+		let items = _.values(state.items)
+
+		state.categories = _.uniq(items.map(({category}) => category))
+
+		console.log("With categories")
+		console.log(state)
+
+		return state
 	}
 
 	componentDidMount() {
 		store.subscribe(() => {
-			this.setState(store.getState().toJS())
+			let newState = this.stateWithCategories(store.getState().toJS())
+			this.setState(newState)
 		})
 	}
 
@@ -58,7 +74,7 @@ class App extends Component {
 			store.dispatch({ type: 'REVERT_DATA' })
 		}
 
-		const categories = [
+		const filters = [
 			{
 				filter: 'SHOW_ALL',
 				title: 'All Recipes'
@@ -73,13 +89,8 @@ class App extends Component {
 			}
 		]
 
-		const renderCategory = ({filter, title}) => {
-			console.log('State')
-			console.log(this.state)
-
-			console.log(store.getState())
-
-			const key = 'category-' + filter
+		const renderFilter = ({filter, title}) => {
+			const key = 'filter-' + filter
 			const active = (filter === this.state.visibilityFilter)
 			const className = ClassNames('category', { active })
 
@@ -100,6 +111,40 @@ class App extends Component {
 			return <div {...props}>{ title }</div>
 		}
 
+		const renderCategory = (category, index) => {
+			const key = 'category-' + index
+			// const active = (filter === this.state.visibilityFilter)
+			
+			let active = false
+
+			if (category === 'All Categories' && !this.state.selectedCategory) {
+				active = true
+			} else {
+				active = (category === this.state.selectedCategory)
+			}
+
+			const className = ClassNames('category', { active })
+
+			const props = { className, key }
+
+			if (!active) {
+				// props['data-filter'] = filter
+
+				props.onClick = (event) => {
+					const {target} = event
+					const filter = target.innerText
+					console.log(filter)
+
+					store.dispatch({type: 'FILTER_CATEGORIES', filter})
+				}
+			}
+
+			return <div {...props}>{ category }</div>
+		}
+
+		let categories = this.state.categories.slice(0)
+		categories.splice(0, 0, "All Categories")
+
 		return <div className="application">
 			<div className="recipeCategories">
 				<div className="recipeAppBox">
@@ -107,6 +152,8 @@ class App extends Component {
 					<button onClick={ revert }>Revert Data</button>
 				</div>
 				<div className="categories">
+					{ filters.map(renderFilter) }
+					<hr />
 					{ categories.map(renderCategory) }
 				</div>
 			</div>

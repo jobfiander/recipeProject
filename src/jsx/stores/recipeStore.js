@@ -143,6 +143,12 @@ function handleAction(state, action) {
 		case 'FILTER_RECIPES':
 			return state.set('visibilityFilter', action.filter)
 
+		case 'FILTER_CATEGORIES':
+			if (action.filter === 'All Categories') {
+				return state.set('selectedCategory', null)
+			}
+			return state.set('selectedCategory', action.filter)
+
 		default:
 			return state
 	}

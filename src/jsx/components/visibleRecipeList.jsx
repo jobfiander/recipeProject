@@ -18,6 +18,14 @@ const getVisibleRecipes = (recipes, filter) => {
   }
 }
 
+const getVisibleRecipesForCategory = (recipes, category) => {
+  if (category) {
+    return recipes.filter(r => (r.category == category))
+  }
+
+  return recipes
+}
+
 const mapStateToProps = (state) => {
   let recipeMap = state.get('items').toJS()
   let recipeIDs = Object.keys(recipeMap)
@@ -30,7 +38,7 @@ const mapStateToProps = (state) => {
     recipes.push(recipe)
   }
   // const recipes = state.get('items').toJS()
-  const items = getVisibleRecipes(recipes, state.get('visibilityFilter'))
+  const items = getVisibleRecipesForCategory(getVisibleRecipes(recipes, state.get('visibilityFilter')), state.get('selectedCategory'))
   
   return { items }
 }
